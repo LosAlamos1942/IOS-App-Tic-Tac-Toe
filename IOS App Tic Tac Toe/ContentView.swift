@@ -28,7 +28,13 @@ struct ContentView: View {
                     .frame(width: 120, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .cornerRadius(30)
                     .onTapGesture {
-                        moves[index] = "X"
+                        withAnimation(Animation.default) {
+                            if moves[index] == ""{
+                                moves[index] = xTurn ? "X" : "O"
+                                xTurn.toggle()
+                            }
+                        }
+                        
                     }
                 }
         
